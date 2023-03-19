@@ -12,6 +12,8 @@
 #include <sstream>
 
 #include "Renderer.hpp"
+#include "VertexBuffer.hpp"
+#include "IndexBuffer.hpp"
 
 struct ShaderSource {
     std::string Vertex;
@@ -139,21 +141,16 @@ int main(void)
         2, 3, 0
     };
     
-    unsigned int buffer, vertex, ibo;
+    unsigned int vao;
     
-    GLCall(glGenBuffers(1, &buffer));
-    GLCall(glGenVertexArrays(1, &vertex));
-    GLCall(glGenBuffers(1, &ibo));
+    VertexBuffer vb(positions, 8 * sizeof(float));
+    IndexBuffer ib(indices, 6);
+
+    GLCall(glGenVertexArrays(1, &vao));
+    GLCall(glBindVertexArray(vao));
     
-    GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
-    GLCall(glBindVertexArray(vertex));
-    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
-    
-    GLCall(glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 8, positions, GL_STATIC_DRAW));
-    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * 6, indices, GL_STATIC_DRAW));
-    
-    GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
     GLCall(glEnableVertexAttribArray(0));
+    GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
     
     ShaderSource source = ParseShader("Resources/Shaders/Basic.shader");
     
@@ -170,7 +167,9 @@ int main(void)
         /* Render here */
         GLCall(glClear(GL_COLOR_BUFFER_BIT));
         
-        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));
+        ib.bind();
+        
+        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
@@ -179,8 +178,7 @@ int main(void)
         glfwPollEvents();
     }
 
-    glDeleteVertexArrays(1, &vertex);
-    glDeleteBuffers(1, &buffer);
+    glDeleteVertexArrays(1, &vao);
     glDeleteProgram(program);
     glfwTerminate();
     return 0;

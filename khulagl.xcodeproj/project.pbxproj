@@ -13,6 +13,8 @@
 		8F9B1F2129C472EC00111C7F /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9B1F2029C472EC00111C7F /* libglfw.3.3.dylib */; };
 		8F9EBEA129C6EDCB0008F8A2 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8F9EBE9E29C6ED460008F8A2 /* Resources */; };
 		8F9EBEA529C73A3F0008F8A2 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA329C73A3F0008F8A2 /* Renderer.cpp */; };
+		8F9EBEA829C7431F0008F8A2 /* VertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA629C7431F0008F8A2 /* VertexBuffer.cpp */; };
+		8F9EBEAB29C743280008F8A2 /* IndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA929C743280008F8A2 /* IndexBuffer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +40,10 @@
 		8F9EBE9E29C6ED460008F8A2 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		8F9EBEA329C73A3F0008F8A2 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		8F9EBEA429C73A3F0008F8A2 /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
+		8F9EBEA629C7431F0008F8A2 /* VertexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBuffer.cpp; sourceTree = "<group>"; };
+		8F9EBEA729C7431F0008F8A2 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
+		8F9EBEA929C743280008F8A2 /* IndexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IndexBuffer.cpp; sourceTree = "<group>"; };
+		8F9EBEAA29C743280008F8A2 /* IndexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IndexBuffer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,10 @@
 				8F9B1F1629C4702600111C7F /* main.cpp */,
 				8F9EBEA329C73A3F0008F8A2 /* Renderer.cpp */,
 				8F9EBEA429C73A3F0008F8A2 /* Renderer.hpp */,
+				8F9EBEA629C7431F0008F8A2 /* VertexBuffer.cpp */,
+				8F9EBEA729C7431F0008F8A2 /* VertexBuffer.hpp */,
+				8F9EBEA929C743280008F8A2 /* IndexBuffer.cpp */,
+				8F9EBEAA29C743280008F8A2 /* IndexBuffer.hpp */,
 			);
 			path = khulagl;
 			sourceTree = "<group>";
@@ -168,6 +178,8 @@
 			files = (
 				8F9EBEA529C73A3F0008F8A2 /* Renderer.cpp in Sources */,
 				8F9B1F1729C4702600111C7F /* main.cpp in Sources */,
+				8F9EBEAB29C743280008F8A2 /* IndexBuffer.cpp in Sources */,
+				8F9EBEA829C7431F0008F8A2 /* VertexBuffer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
