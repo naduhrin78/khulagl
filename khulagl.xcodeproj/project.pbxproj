@@ -15,6 +15,7 @@
 		8F9EBEA529C73A3F0008F8A2 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA329C73A3F0008F8A2 /* Renderer.cpp */; };
 		8F9EBEA829C7431F0008F8A2 /* VertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA629C7431F0008F8A2 /* VertexBuffer.cpp */; };
 		8F9EBEAB29C743280008F8A2 /* IndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA929C743280008F8A2 /* IndexBuffer.cpp */; };
+		8F9FBFD629C9FF7600F73FA2 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FBFD429C9FF7600F73FA2 /* Shader.cpp */; };
 		8FEFE4E229C9A9AF00ED2E21 /* VertexBufferLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFE4E029C9A9AF00ED2E21 /* VertexBufferLayout.cpp */; };
 		8FEFE4E529C9AD6700ED2E21 /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFE4E329C9AD6700ED2E21 /* VertexArray.cpp */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,8 @@
 		8F9EBEA729C7431F0008F8A2 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
 		8F9EBEA929C743280008F8A2 /* IndexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IndexBuffer.cpp; sourceTree = "<group>"; };
 		8F9EBEAA29C743280008F8A2 /* IndexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IndexBuffer.hpp; sourceTree = "<group>"; };
+		8F9FBFD429C9FF7600F73FA2 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		8F9FBFD529C9FF7600F73FA2 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		8FEFE4E029C9A9AF00ED2E21 /* VertexBufferLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferLayout.cpp; sourceTree = "<group>"; };
 		8FEFE4E129C9A9AF00ED2E21 /* VertexBufferLayout.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBufferLayout.hpp; sourceTree = "<group>"; };
 		8FEFE4E329C9AD6700ED2E21 /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				8FEFE4E129C9A9AF00ED2E21 /* VertexBufferLayout.hpp */,
 				8FEFE4E329C9AD6700ED2E21 /* VertexArray.cpp */,
 				8FEFE4E429C9AD6700ED2E21 /* VertexArray.hpp */,
+				8F9FBFD429C9FF7600F73FA2 /* Shader.cpp */,
+				8F9FBFD529C9FF7600F73FA2 /* Shader.hpp */,
 			);
 			path = khulagl;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				8FEFE4E529C9AD6700ED2E21 /* VertexArray.cpp in Sources */,
 				8F9B1F1729C4702600111C7F /* main.cpp in Sources */,
 				8FEFE4E229C9A9AF00ED2E21 /* VertexBufferLayout.cpp in Sources */,
+				8F9FBFD629C9FF7600F73FA2 /* Shader.cpp in Sources */,
 				8F9EBEAB29C743280008F8A2 /* IndexBuffer.cpp in Sources */,
 				8F9EBEA829C7431F0008F8A2 /* VertexBuffer.cpp in Sources */,
 			);
