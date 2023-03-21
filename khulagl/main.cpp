@@ -51,25 +51,25 @@ static ShaderSource ParseShader(const std::string& filePath) {
 }
 
 static unsigned int CompileShader(int type, const std::string& source) {
-    GLCall(unsigned int id = glCreateShader(type));
+    unsigned int id = glCreateShader(type);
     const char* src =  source.c_str();
     
-    GLCall(glShaderSource(id, 1, &src, nullptr));
-    GLCall(glCompileShader(id));
+    glShaderSource(id, 1, &src, nullptr);
+    glCompileShader(id);
     
     /* Error handling */
     int status;
-    GLCall(glGetShaderiv(id, GL_COMPILE_STATUS, &status));
+    glGetShaderiv(id, GL_COMPILE_STATUS, &status);
     
     if (status == GL_TRUE) {
         return id;
     }
     
     int length;
-    GLCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length));
+    glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
     char* message = (char*)alloca(sizeof(char) * length);
     
-    GLCall(glGetShaderInfoLog(id, GL_INFO_LOG_LENGTH, &length, message));
+    glGetShaderInfoLog(id, GL_INFO_LOG_LENGTH, &length, message);
     
     std::cout << "Failed to compile" << (type == GL_VERTEX_SHADER ? " vertex " : " fragment ") << "shader" << std::endl;
     std::cout << message << std::endl;
@@ -83,15 +83,15 @@ static unsigned int CreateShader(const std::string& vertexShader, const std::str
     unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
     unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
     
-    GLCall(glAttachShader(program, vs));
-    GLCall(glAttachShader(program, fs));
-    GLCall(glLinkProgram(program));
+    glAttachShader(program, vs);
+    glAttachShader(program, fs);
+    glLinkProgram(program);
     
     /* Error handling */
-    GLCall(glValidateProgram(program));
+    glValidateProgram(program);
     
-    GLCall(glDeleteShader(vs));
-    GLCall(glDeleteShader(fs));
+    glDeleteShader(vs);
+    glDeleteShader(fs);
     
     return program;
 }
@@ -119,7 +119,7 @@ int main(void)
     }
 
     /* Make the window's context current */
-    GLCall(glfwMakeContextCurrent(window));
+    glfwMakeContextCurrent(window);
     
     /* Initialize the glew library */
     GLenum err = glewInit();
@@ -159,7 +159,7 @@ int main(void)
     std::string fragmentShader = source.Fragment;
     
     unsigned int program = CreateShader(vertexShader, fragmentShader);
-    GLCall(glUseProgram(program));
+    glUseProgram(program);
     
     int location = glGetUniformLocation(program, "u_Color");
     glUniform4f(location, 1.0, 1.0, 0.0, 1.0);
@@ -168,9 +168,9 @@ int main(void)
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
-        GLCall(glClear(GL_COLOR_BUFFER_BIT));
+        glClear(GL_COLOR_BUFFER_BIT);
         
-        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
