@@ -151,6 +151,7 @@ int main(void)
     layout.push<float>(2);
     
     vao.addBuffer(vb, layout);
+    vao.unbind();
     
     ShaderSource source = ParseShader("Resources/Shaders/Basic.shader");
     
@@ -169,6 +170,8 @@ int main(void)
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
+        
+        vao.bind();
         
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
