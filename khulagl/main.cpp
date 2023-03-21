@@ -14,6 +14,7 @@
 #include "Renderer.hpp"
 #include "VertexBuffer.hpp"
 #include "IndexBuffer.hpp"
+#include "VertexArray.hpp"
 
 struct ShaderSource {
     std::string Vertex;
@@ -141,16 +142,15 @@ int main(void)
         2, 3, 0
     };
     
-    unsigned int vao;
+    VertexArray vao;
     
     VertexBuffer vb(positions, 8 * sizeof(float));
     IndexBuffer ib(indices, 6);
-
-    GLCall(glGenVertexArrays(1, &vao));
-    GLCall(glBindVertexArray(vao));
     
-    GLCall(glEnableVertexAttribArray(0));
-    GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
+    VertexBufferLayout layout;
+    layout.push<float>(2);
+    
+    vao.addBuffer(vb, layout);
     
     ShaderSource source = ParseShader("Resources/Shaders/Basic.shader");
     
@@ -160,14 +160,15 @@ int main(void)
     
     unsigned int program = CreateShader(vertexShader, fragmentShader);
     GLCall(glUseProgram(program));
+    
+    int location = glGetUniformLocation(program, "u_Color");
+    glUniform4f(location, 1.0, 1.0, 0.0, 1.0);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         GLCall(glClear(GL_COLOR_BUFFER_BIT));
-        
-        ib.bind();
         
         GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
@@ -178,7 +179,6 @@ int main(void)
         glfwPollEvents();
     }
 
-    glDeleteVertexArrays(1, &vao);
     glDeleteProgram(program);
     glfwTerminate();
     return 0;
