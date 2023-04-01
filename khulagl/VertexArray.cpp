@@ -24,21 +24,16 @@ void VertexArray::unbind() {
     glBindVertexArray(0);
 }
 
-void VertexArray::addBuffer(const VertexBuffer &vb, const VertexBufferLayout &layout) {
+void VertexArray::setVertices(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices) {
     bind();
-    vb.bind();
-    
-    std::vector<VertexBufferElement> elements = layout.getElements();
-    
-    unsigned int offset = 0;
-    for (int i = 0; i < elements.size(); i++) {
-        glEnableVertexAttribArray(i);
-        glVertexAttribPointer(i, elements[i].count, elements[i].type, elements[i].normalized, layout.getStride(), (const void*) (size_t) offset);
-        
-        offset += elements[i].size();
-    }
-}
 
+    m_VertexBuffer = std::make_unique<VertexBuffer>(vertices.data(), vertices.size() * sizeof(Vertex));
+    m_IndexBuffer = std::make_unique<IndexBuffer>(indices.data(), indices.size());
+
+    layout.apply();
+        
+    unbind();
+}
 
 
 

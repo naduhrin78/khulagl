@@ -7,7 +7,7 @@
 
 #ifndef VertexBufferLayout_hpp
 #define VertexBufferLayout_hpp
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <vector>
 
 struct VertexBufferElement {
@@ -15,7 +15,7 @@ struct VertexBufferElement {
     unsigned int type;
     unsigned char normalized;
     
-    int size() {
+    int size() const {
         int unitSize = 0;
         
         switch (type) {
@@ -42,6 +42,7 @@ private:
     int stride;
 public:
     VertexBufferLayout(): stride(0) {};
+    void apply() const;
     
     template<typename T>
     void push(int count) {

@@ -4,16 +4,11 @@
 //
 //  Created by Anirudh on 17/03/23.
 //
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include <fstream>
-#include <sstream>
 
-#include "Renderer.hpp"
-#include "VertexBuffer.hpp"
-#include "IndexBuffer.hpp"
 #include "VertexArray.hpp"
 #include "Shader.hpp"
 
@@ -42,37 +37,28 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
     
-    /* Initialize the glew library */
-    GLenum err = glewInit();
-    if (GLEW_OK != err)
+    /* Initialize the glad library */
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        /* Problem: glewInit failed, something is seriously wrong. */
-        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+        std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
     
-    float positions[8] = {
-        -0.5f, 0.5f,
-         0.5f, 0.5f,
-         0.5f,-0.5f,
-        -0.5f,-0.5f,
+    std::vector<Vertex> vertices = {
+        {-0.5f, 0.5f},
+        { 0.5f, 0.5f},
+        { 0.5f,-0.5f},
+        {-0.5f,-0.5f},
     };
     
-    unsigned int indices[] = {
+    std::vector<unsigned int> indices = {
         0, 1, 2,
         2, 3, 0
     };
     
     VertexArray vao;
-    
-    VertexBuffer vb(positions, 8 * sizeof(float));
-    IndexBuffer ib(indices, 6);
-    
-    VertexBufferLayout layout;
-    layout.push<float>(2);
-    
-    vao.addBuffer(vb, layout);
-    vao.unbind();
+    vao.layout.push<float>(2);
+    vao.setVertices(vertices, indices);
     
     Shader shader("Resources/Shaders/Basic.shader");
     

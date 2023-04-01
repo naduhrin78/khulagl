@@ -7,6 +7,7 @@
 
 #ifndef IndexBuffer_hpp
 #define IndexBuffer_hpp
+#include "glad/glad.h"
 
 class IndexBuffer {
 private:
