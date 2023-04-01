@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8F6F270229D6FBEC0072D68C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFC65329D6D86A0033360E /* glad.c */; };
+		8F6F270B29D7FE040072D68C /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F6F270A29D7FE040072D68C /* stb_image.cpp */; };
+		8F6F271129D874040072D68C /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F6F270F29D874040072D68C /* Texture.cpp */; };
 		8F9B1F1729C4702600111C7F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9B1F1629C4702600111C7F /* main.cpp */; };
 		8F9B1F1F29C4723C00111C7F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9B1F1E29C4723C00111C7F /* OpenGL.framework */; };
 		8F9B1F2129C472EC00111C7F /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9B1F2029C472EC00111C7F /* libglfw.3.3.dylib */; };
@@ -36,6 +38,14 @@
 		8F288FD929D6D9470021F300 /* glad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = glad.h; path = Vendor/glad/include/glad/glad.h; sourceTree = "<group>"; };
 		8F288FDD29D6D9F00021F300 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		8F288FDE29D6D9F00021F300 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		8F6F270729D7FD190072D68C /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
+		8F6F270929D7FDA40072D68C /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		8F6F270A29D7FE040072D68C /* stb_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
+		8F6F270C29D7FED70072D68C /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		8F6F270D29D80B8C0072D68C /* pepe.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pepe.jpeg; sourceTree = "<group>"; };
+		8F6F270E29D833E20072D68C /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		8F6F270F29D874040072D68C /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		8F6F271029D874040072D68C /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		8F9B1F1329C4702600111C7F /* khulagl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = khulagl; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F9B1F1629C4702600111C7F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8F9B1F1E29C4723C00111C7F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -68,6 +78,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F6F270629D7FD010072D68C /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				8F6F270D29D80B8C0072D68C /* pepe.jpeg */,
+				8F6F270C29D7FED70072D68C /* container.jpg */,
+				8F6F270729D7FD190072D68C /* wall.jpg */,
+				8F6F270E29D833E20072D68C /* awesomeface.png */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		8F6F270829D7FD850072D68C /* stb_image */ = {
+			isa = PBXGroup;
+			children = (
+				8F6F270929D7FDA40072D68C /* stb_image.h */,
+				8F6F270A29D7FE040072D68C /* stb_image.cpp */,
+			);
+			path = stb_image;
+			sourceTree = "<group>";
+		};
 		8F9B1F0A29C4702600111C7F = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +132,8 @@
 				8FEFE4E429C9AD6700ED2E21 /* VertexArray.hpp */,
 				8F9FBFD429C9FF7600F73FA2 /* Shader.cpp */,
 				8F9FBFD529C9FF7600F73FA2 /* Shader.hpp */,
+				8F6F270F29D874040072D68C /* Texture.cpp */,
+				8F6F271029D874040072D68C /* Texture.hpp */,
 			);
 			path = khulagl;
 			sourceTree = "<group>";
@@ -120,6 +152,7 @@
 		8F9EBE8A29C6E0F10008F8A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8F6F270629D7FD010072D68C /* Textures */,
 				8F9EBE9129C6E5AC0008F8A2 /* Shaders */,
 			);
 			path = Resources;
@@ -136,6 +169,7 @@
 		8FBFC64F29D6D7A20033360E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				8F6F270829D7FD850072D68C /* stb_image */,
 				8FBFC65029D6D7B30033360E /* glad */,
 			);
 			path = Vendor;
@@ -208,7 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F6F270229D6FBEC0072D68C /* glad.c in Sources */,
+				8F6F270B29D7FE040072D68C /* stb_image.cpp in Sources */,
 				8FEFE4E529C9AD6700ED2E21 /* VertexArray.cpp in Sources */,
+				8F6F271129D874040072D68C /* Texture.cpp in Sources */,
 				8F9B1F1729C4702600111C7F /* main.cpp in Sources */,
 				8FEFE4E229C9A9AF00ED2E21 /* VertexBufferLayout.cpp in Sources */,
 				8F9FBFD629C9FF7600F73FA2 /* Shader.cpp in Sources */,
@@ -335,6 +371,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
+					"/opt/homebrew/Cellar/glm/0.9.9.8/**",
 					"/opt/homebrew/Cellar/glfw/3.3.8/**",
 					"./Vendor/**",
 				);
@@ -353,6 +390,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
+					"/opt/homebrew/Cellar/glm/0.9.9.8/**",
 					"/opt/homebrew/Cellar/glfw/3.3.8/**",
 					"./Vendor/**",
 				);

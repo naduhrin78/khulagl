@@ -7,9 +7,12 @@
 
 #include "Shader.hpp"
 #include <glad/glad.h>
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
+#include <glm/gtc/type_ptr.hpp>
 
 Shader::Shader(const std::string& filepath):
     m_RendererID(0) {
@@ -123,6 +126,18 @@ int Shader::getUniformLocation(const std::string& name) {
     return location;
 }
 
+void Shader::setUniform1f(const std::string& name, float v1) {
+    glUniform1f(getUniformLocation(name), v1);
+}
+
 void Shader::setUniform4f(const std::string& name, float v1, float v2, float v3, float v4) {
     glUniform4f(getUniformLocation(name), v1, v2, v3, v4);
+}
+
+void Shader::setUniform1i(const std::string& name, int v1) {
+    glUniform1i(getUniformLocation(name), v1);
+}
+
+void Shader::setUniformMat4f(const std::string& name, glm::mat4 v1) {
+    glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, glm::value_ptr(v1));
 }
