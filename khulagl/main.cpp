@@ -78,42 +78,47 @@ int main(void)
     }
     
     std::vector<Vertex> vertices = {
-        {-0.5f, -0.5f, -0.5f,  0.0f, 0.0f },
-        {0.5f, -0.5f, -0.5f,  1.0f, 0.0f },
-        {0.5f,  0.5f, -0.5f,  1.0f, 1.0f },
-        {0.5f,  0.5f, -0.5f,  1.0f, 1.0f },
-        {-0.5f,  0.5f, -0.5f,  0.0f, 1.0f },
-        {-0.5f, -0.5f, -0.5f,  0.0f, 0.0f },
-        {-0.5f, -0.5f,  0.5f,  0.0f, 0.0f },
-        {0.5f, -0.5f,  0.5f,  1.0f, 0.0f },
-        {0.5f,  0.5f,  0.5f,  1.0f, 1.0f },
-        {0.5f,  0.5f,  0.5f,  1.0f, 1.0f },
-        {-0.5f,  0.5f,  0.5f,  0.0f, 1.0f },
-        {-0.5f, -0.5f,  0.5f,  0.0f, 0.0f },
-        {-0.5f,  0.5f,  0.5f,  1.0f, 0.0f },
-        {-0.5f,  0.5f, -0.5f,  1.0f, 1.0f },
-        {-0.5f, -0.5f, -0.5f,  0.0f, 1.0f },
-        {-0.5f, -0.5f, -0.5f,  0.0f, 1.0f },
-        {-0.5f, -0.5f,  0.5f,  0.0f, 0.0f },
-        {-0.5f,  0.5f,  0.5f,  1.0f, 0.0f },
-        {0.5f,  0.5f,  0.5f,  1.0f, 0.0f },
-        {0.5f,  0.5f, -0.5f,  1.0f, 1.0f },
-        {0.5f, -0.5f, -0.5f,  0.0f, 1.0f },
-        {0.5f, -0.5f, -0.5f,  0.0f, 1.0f },
-        {0.5f, -0.5f,  0.5f,  0.0f, 0.0f },
-        {0.5f,  0.5f,  0.5f,  1.0f, 0.0f },
-        {-0.5f, -0.5f, -0.5f,  0.0f, 1.0f },
-        {0.5f, -0.5f, -0.5f,  1.0f, 1.0f },
-        {0.5f, -0.5f,  0.5f,  1.0f, 0.0f },
-        {0.5f, -0.5f,  0.5f,  1.0f, 0.0f },
-        {-0.5f, -0.5f,  0.5f,  0.0f, 0.0f },
-        {-0.5f, -0.5f, -0.5f,  0.0f, 1.0f },
-        {-0.5f,  0.5f, -0.5f,  0.0f, 1.0f },
-        {0.5f,  0.5f, -0.5f,  1.0f, 1.0f },
-        {0.5f,  0.5f,  0.5f,  1.0f, 0.0f },
-        {0.5f,  0.5f,  0.5f,  1.0f, 0.0f },
-        {-0.5f,  0.5f,  0.5f,  0.0f, 0.0f },
-        {-0.5f,  0.5f, -0.5f,  0.0f, 1.0f }
+        { -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f },
+        {  0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f },
+        {  0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f },
+        {  0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f },
+        { -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f },
+        { -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f },
+        
+        {-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 0.0f, 0.0f },
+        {     0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 1.0f, 0.0f },
+        {     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 1.0f, 1.0f },
+        {     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 1.0f, 1.0f },
+        {    -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 0.0f, 1.0f },
+        {    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 0.0f, 0.0f },
+        
+        {-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
+        {    -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f, 1.0f, 1.0f },
+        {    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
+        {    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
+        {    -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f, 0.0f, 0.0f },
+        {    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
+        
+        {0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
+        {     0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f, 1.0f, 1.0f },
+        {     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
+        {     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
+        {     0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f, 0.0f, 0.0f },
+        {     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
+        
+        {-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f, 0.0f, 1.0f },
+        {     0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f, 1.0f, 1.0f },
+        {     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f, 1.0f, 0.0f },
+        {     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f, 1.0f, 0.0f },
+        {    -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f, 0.0f, 0.0f },
+        {    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f, 0.0f, 1.0f },
+        
+        {-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f },
+        {     0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f, 1.0f, 1.0f },
+        {     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f },
+        {     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f },
+        {    -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f, 0.0f, 0.0f },
+        {    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f }
 
     };
     
@@ -124,10 +129,12 @@ int main(void)
     
     VertexArray vao;
     vao.layout.push<float>(3);
+    vao.layout.push<float>(3);
     vao.layout.push<float>(2);
     vao.setVertices(vertices, indices);
     
     VertexArray vao2;
+    vao2.layout.push<float>(3);
     vao2.layout.push<float>(3);
     vao2.layout.push<float>(2);
     vao2.setVertices(vertices, indices);
@@ -156,6 +163,8 @@ int main(void)
         objectShader.bind();
         objectShader.setUniform3f("objectColor", 1.0f, 0.5f, 0.31f);
         objectShader.setUniform3f("lightColor",  1.0f, 1.0f, 1.0f);
+        objectShader.setUniform3f("lightPos", lightPos.x, lightPos.y, lightPos.z);
+        objectShader.setUniform3f("viewPos", camera.position.x, camera.position.y, camera.position.z);
         
         // pass projection matrix to shader (note that in this case it could change every frame)
         glm::mat4 projection = glm::perspective(glm::radians(camera.zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
