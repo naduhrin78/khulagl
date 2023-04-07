@@ -21,11 +21,10 @@ void main()
 
 out vec4 color;
 
-in vec2 v_Texture;
-uniform sampler2D texture1;
-uniform sampler2D texture2;
+uniform vec3 objectColor;
+uniform vec3 lightColor;
 
 void main()
 {
-    color = mix(texture(texture1, v_Texture), texture(texture2, v_Texture), 0.2);
+    color = vec4(lightColor * objectColor, 1.0);
 }

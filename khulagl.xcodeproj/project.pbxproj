@@ -53,7 +53,7 @@
 		8F9B1F1629C4702600111C7F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8F9B1F1E29C4723C00111C7F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8F9B1F2029C472EC00111C7F /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
-		8F9EBE9229C6E5BC0008F8A2 /* Basic.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Basic.shader; sourceTree = "<group>"; };
+		8F9EBE9229C6E5BC0008F8A2 /* Object.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Object.shader; sourceTree = "<group>"; };
 		8F9EBE9E29C6ED460008F8A2 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		8F9EBEA629C7431F0008F8A2 /* VertexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBuffer.cpp; sourceTree = "<group>"; };
 		8F9EBEA729C7431F0008F8A2 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
@@ -61,6 +61,7 @@
 		8F9EBEAA29C743280008F8A2 /* IndexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IndexBuffer.hpp; sourceTree = "<group>"; };
 		8F9FBFD429C9FF7600F73FA2 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		8F9FBFD529C9FF7600F73FA2 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		8FBA7C7729E017380004457E /* Light.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Light.shader; sourceTree = "<group>"; };
 		8FBFC65329D6D86A0033360E /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = Vendor/glad/src/glad.c; sourceTree = "<group>"; };
 		8FEFE4E029C9A9AF00ED2E21 /* VertexBufferLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferLayout.cpp; sourceTree = "<group>"; };
 		8FEFE4E129C9A9AF00ED2E21 /* VertexBufferLayout.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBufferLayout.hpp; sourceTree = "<group>"; };
@@ -166,7 +167,8 @@
 		8F9EBE9129C6E5AC0008F8A2 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				8F9EBE9229C6E5BC0008F8A2 /* Basic.shader */,
+				8F9EBE9229C6E5BC0008F8A2 /* Object.shader */,
+				8FBA7C7729E017380004457E /* Light.shader */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";

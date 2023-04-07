@@ -37,6 +37,8 @@ bool firstMouse = true;
 float deltaTime = 0.0f;    // time between current frame and last frame
 float lastFrame = 0.0f;
 
+glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+
 int main(void)
 {
     /* Initialize the glfw library */
@@ -125,27 +127,15 @@ int main(void)
     vao.layout.push<float>(2);
     vao.setVertices(vertices, indices);
     
-    Shader shader("Resources/Shaders/Basic.shader");
-    shader.setUniform1i("texture1", 0);
-    shader.setUniform1i("texture2", 1);
+    VertexArray vao2;
+    vao2.layout.push<float>(3);
+    vao2.layout.push<float>(2);
+    vao2.setVertices(vertices, indices);
     
-    Texture texture1("Resources/Textures/container.jpg");
-    Texture texture2("Resources/Textures/awesomeface.png");
+    Shader objectShader("Resources/Shaders/Object.shader");
+    Shader lightShader("Resources/Shaders/Light.shader");
     
     glEnable(GL_DEPTH_TEST);
-
-    glm::vec3 cubePositions[] = {
-        glm::vec3( 0.0f,  0.0f,  0.0f),
-        glm::vec3( 2.0f,  5.0f, -15.0f),
-        glm::vec3(-1.5f, -2.2f, -2.5f),
-        glm::vec3(-3.8f, -2.0f, -12.3f),
-        glm::vec3( 2.4f, -0.4f, -3.5f),
-        glm::vec3(-1.7f,  3.0f, -7.5f),
-        glm::vec3( 1.3f, -2.0f, -2.5f),
-        glm::vec3( 1.5f,  2.0f, -2.5f),
-        glm::vec3( 1.5f,  0.2f, -1.5f),
-        glm::vec3(-1.3f,  1.0f, -1.5f)
-    };
     
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -163,31 +153,40 @@ int main(void)
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        texture1.bind(0);
-        texture2.bind(1);
+        objectShader.bind();
+        objectShader.setUniform3f("objectColor", 1.0f, 0.5f, 0.31f);
+        objectShader.setUniform3f("lightColor",  1.0f, 1.0f, 1.0f);
         
         // pass projection matrix to shader (note that in this case it could change every frame)
         glm::mat4 projection = glm::perspective(glm::radians(camera.zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        shader.setUniformMat4f("projection", projection);
+        objectShader.setUniformMat4f("projection", projection);
 
         // camera/view transformation
         glm::mat4 view = camera.getViewMatrix();
-        shader.setUniformMat4f("view", view);
-
-        // render boxes
-        vao.bind();
+        objectShader.setUniformMat4f("view", view);
         
-        for (unsigned int i = 0; i < 10; i++)
-        {
-            // calculate the model matrix for each object and pass it to shader before drawing
-            glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-            model = glm::translate(model, cubePositions[i]);
-            float angle = 20.0f * i;
-            model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
-            shader.setUniformMat4f("model", model);
+        // world transformation
+        glm::mat4 model = glm::mat4(1.0f);
+        objectShader.setUniformMat4f("model", model);
 
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
+        // render box
+        vao.bind();
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        
+        lightShader.bind();
+        
+        lightShader.setUniformMat4f("projection", projection);
+        lightShader.setUniformMat4f("view", view);
+        model = glm::translate(model, lightPos);
+        model = glm::scale(model, glm::vec3(0.2f));
+        lightShader.setUniformMat4f("model", model);
+        
+        // render light
+        vao2.bind();
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
