@@ -22,7 +22,6 @@ private:
     unsigned int id;
     std::unique_ptr<VertexBuffer> m_VertexBuffer;
     std::unique_ptr<IndexBuffer> m_IndexBuffer;
-    VertexBufferLayout m_VertexBufferLayout;
 public:
     VertexBufferLayout layout;
     
