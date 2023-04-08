@@ -161,11 +161,12 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         objectShader.bind();
+        
         objectShader.setUniform3f("light.ambient",  0.2f, 0.2f, 0.2f);
         objectShader.setUniform3f("light.diffuse",  0.5f, 0.5f, 0.5f);
         objectShader.setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
-        objectShader.setUniform3f("light.position", lightPos.x, lightPos.y, lightPos.z);
-        objectShader.setUniform3f("viewPos", camera.position.x, camera.position.y, camera.position.z);
+        objectShader.setUniform3f("light.position", lightPos);
+        objectShader.setUniform3f("viewPos", camera.position);
         
         objectShader.setUniform3f("material.ambient", 1.0f, 0.5f, 0.31f);
         objectShader.setUniform3f("material.diffuse", 1.0f, 0.5f, 0.31f);
