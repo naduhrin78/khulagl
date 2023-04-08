@@ -15,20 +15,20 @@
 #include <glm/gtc/type_ptr.hpp>
 
 Shader::Shader(const std::string& filepath):
-    m_RendererID(0) {
+    id(0) {
     ShaderSource source = parseShader(filepath);
     
-    m_RendererID = createShader(source.Vertex, source.Fragment);
+    id = createShader(source.Vertex, source.Fragment);
         
-    glUseProgram(m_RendererID);
+    glUseProgram(id);
 }
 
 Shader::~Shader() {
-    glDeleteProgram(m_RendererID);
+    glDeleteProgram(id);
 }
 
 void Shader::bind() const {
-    glUseProgram(m_RendererID);
+    glUseProgram(id);
 }
 
 void Shader::unbind() const {
@@ -115,7 +115,7 @@ int Shader::getUniformLocation(const std::string& name) {
         return uniformLocationCache[name];
     }
     
-    int location = glGetUniformLocation(m_RendererID, name.c_str());
+    int location = glGetUniformLocation(id, name.c_str());
     
     if (location == -1) {
         std::cout << "No active uniform variable with name " << name << " found" << std::endl;

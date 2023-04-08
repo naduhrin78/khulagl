@@ -19,7 +19,7 @@ struct ShaderSource {
 
 class Shader {
 private:
-    unsigned int m_RendererID;
+    unsigned int id;
     std::unordered_map <std::string, int> uniformLocationCache;
     
     ShaderSource parseShader(const std::string& filePath);

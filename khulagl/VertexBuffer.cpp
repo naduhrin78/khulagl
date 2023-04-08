@@ -9,17 +9,17 @@
 #include "glad/glad.h"
 
 VertexBuffer::VertexBuffer(const void* data, unsigned int size) {
-    glGenBuffers(1, &m_RendererID);
-    glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+    glGenBuffers(1, &id);
+    glBindBuffer(GL_ARRAY_BUFFER, id);
     glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 }
 
 VertexBuffer::~VertexBuffer() {
-    glDeleteBuffers(1, &m_RendererID);
+    glDeleteBuffers(1, &id);
 }
 
 void VertexBuffer::bind() const {
-    glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+    glBindBuffer(GL_ARRAY_BUFFER, id);
 }
 
 void VertexBuffer::unbind() const {

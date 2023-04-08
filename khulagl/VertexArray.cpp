@@ -8,16 +8,16 @@
 #include "VertexArray.hpp"
 
 VertexArray::VertexArray() { 
-    glGenVertexArrays(1, &m_RendererID);
-    glBindVertexArray(m_RendererID);
+    glGenVertexArrays(1, &id);
+    glBindVertexArray(id);
 }
 
 VertexArray::~VertexArray() {
-    glDeleteVertexArrays(1, &m_RendererID);
+    glDeleteVertexArrays(1, &id);
 }
 
 void VertexArray::bind() {
-    glBindVertexArray(m_RendererID);
+    glBindVertexArray(id);
 }
 
 void VertexArray::unbind() {

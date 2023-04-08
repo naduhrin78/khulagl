@@ -19,7 +19,7 @@ struct Vertex {
 
 class VertexArray {
 private:
-    unsigned int m_RendererID;
+    unsigned int id;
     std::unique_ptr<VertexBuffer> m_VertexBuffer;
     std::unique_ptr<IndexBuffer> m_IndexBuffer;
     VertexBufferLayout m_VertexBufferLayout;
