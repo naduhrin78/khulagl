@@ -27,6 +27,7 @@ void main()
 struct Material {
     sampler2D diffuse;
     sampler2D specular;
+    sampler2D emission;
     float shininess;
 };
 
@@ -50,6 +51,12 @@ uniform vec3 viewPos;
 uniform Material material;
 uniform Light light;
 
+vec3 calculate_emission()
+{
+    vec3 show = step(vec3(1.0), vec3(1.0) - texture(material.specular, v_Texture).rgb);
+    return texture(material.emission, v_Texture).rgb * show;
+}
+
 void main()
 {
     // ambient
@@ -67,6 +74,9 @@ void main()
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
     vec3 specular = light.specular * spec *  texture(material.specular, v_Texture).rgb;
     
-    vec3 result = ambient+diffuse+specular;
+    // emission
+    vec3 emission = calculate_emission();
+    
+    vec3 result = emission+ambient+diffuse+specular;
     color = vec4(result, 1.0);
 }

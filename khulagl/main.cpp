@@ -144,11 +144,12 @@ int main(void)
     
     Texture container("Resources/Textures/container.png");
     Texture container_specular("Resources/Textures/container_specular.png");
-    Texture container_emission("Resources/Textures/container_specular.png");
+    Texture container_emission("Resources/Textures/container_emission.jpg");
     
     objectShader.bind();
     objectShader.setUniform1i("material.diffuse",  0);
     objectShader.setUniform1i("material.specular", 1);
+    objectShader.setUniform1i("material.emission", 2);
     
     glEnable(GL_DEPTH_TEST);
     
@@ -179,8 +180,9 @@ int main(void)
         
         container.bind(0);
         container_specular.bind(1);
+        container_emission.bind(2);
 
-        objectShader.setUniform1f("material.shininess", 32.0f);
+        objectShader.setUniform1f("material.shininess", 64.0f);
         
         // pass projection matrix to shader (note that in this case it could change every frame)
         glm::mat4 projection = glm::perspective(glm::radians(camera.zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
