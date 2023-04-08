@@ -144,6 +144,11 @@ int main(void)
     
     Texture container("Resources/Textures/container.png");
     Texture container_specular("Resources/Textures/container_specular.png");
+    Texture container_emission("Resources/Textures/container_specular.png");
+    
+    objectShader.bind();
+    objectShader.setUniform1i("material.diffuse",  0);
+    objectShader.setUniform1i("material.specular", 1);
     
     glEnable(GL_DEPTH_TEST);
     
@@ -172,11 +177,8 @@ int main(void)
         objectShader.setUniform3f("light.position", lightPos);
         objectShader.setUniform3f("viewPos", camera.position);
         
-        objectShader.setUniform1i("material.diffuse",  0);
-        container_specular.bind(0);
-
-        objectShader.setUniform1i("material.specular", 1);
-        container.bind(1);
+        container.bind(0);
+        container_specular.bind(1);
 
         objectShader.setUniform1f("material.shininess", 32.0f);
         
@@ -209,7 +211,6 @@ int main(void)
         vao2.bind();
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
-
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);

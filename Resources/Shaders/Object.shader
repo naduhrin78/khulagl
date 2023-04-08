@@ -53,19 +53,19 @@ uniform Light light;
 void main()
 {
     // ambient
-    vec3 ambient = light.ambient * vec3(texture(material.diffuse, v_Texture));
+    vec3 ambient = light.ambient * texture(material.diffuse, v_Texture).rgb;
     
     // diffuse
     vec3 normal = normalize(v_Normal);
     vec3 lightDir = normalize(light.position-v_Fragment);
     float diff = max(dot(normal, lightDir), 0.0);
-    vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, v_Texture));
+    vec3 diffuse = light.diffuse * diff * texture(material.diffuse, v_Texture).rgb;
     
     // specular
     vec3 viewDir = normalize(viewPos - v_Fragment);
     vec3 reflectDir = reflect(-lightDir, normal);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    vec3 specular = light.specular * spec *  vec3(texture(material.specular, v_Texture));
+    vec3 specular = light.specular * spec *  texture(material.specular, v_Texture).rgb;
     
     vec3 result = ambient+diffuse+specular;
     color = vec4(result, 1.0);

@@ -69,6 +69,7 @@
 		8FEFE4E429C9AD6700ED2E21 /* VertexArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexArray.hpp; sourceTree = "<group>"; };
 		8FFCF2CB29E1319B0071399C /* container.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container.png; sourceTree = "<group>"; };
 		8FFCF2CC29E1321B0071399C /* container_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container_specular.png; sourceTree = "<group>"; };
+		8FFCF2CD29E13BAA0071399C /* container_emission.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container_emission.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 		8F6F270629D7FD010072D68C /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				8FFCF2CD29E13BAA0071399C /* container_emission.jpg */,
 				8FFCF2CC29E1321B0071399C /* container_specular.png */,
 				8FFCF2CB29E1319B0071399C /* container.png */,
 				8F6F270D29D80B8C0072D68C /* pepe.jpeg */,
