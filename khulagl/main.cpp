@@ -142,6 +142,8 @@ int main(void)
     Shader objectShader("Resources/Shaders/Object.shader");
     Shader lightShader("Resources/Shaders/Light.shader");
     
+    Texture container("Resources/Textures/container.png");
+    
     glEnable(GL_DEPTH_TEST);
     
     /* Loop until the user closes the window */
@@ -161,14 +163,14 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         objectShader.bind();
+        container.bind();
         
         objectShader.setUniform3f("light.ambient",  0.2f, 0.2f, 0.2f);
-        objectShader.setUniform3f("light.diffuse",  0.5f, 0.5f, 0.5f);
+        objectShader.setUniform1i("light.diffuse",  0);
         objectShader.setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
         objectShader.setUniform3f("light.position", lightPos);
         objectShader.setUniform3f("viewPos", camera.position);
         
-        objectShader.setUniform3f("material.ambient", 1.0f, 0.5f, 0.31f);
         objectShader.setUniform3f("material.diffuse", 1.0f, 0.5f, 0.31f);
         objectShader.setUniform3f("material.specular", 0.5f, 0.5f, 0.5f);
         objectShader.setUniform1f("material.shininess", 32.0f);
@@ -189,6 +191,8 @@ int main(void)
         vao.bind();
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
+        
+        container.unbind();
         
         lightShader.bind();
         

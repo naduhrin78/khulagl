@@ -25,8 +25,7 @@ void main()
 #version 330 core
 
 struct Material {
-    vec3 ambient;
-    vec3 diffuse;
+    sampler2D diffuse;
     vec3 specular;
     float shininess;
 };
@@ -39,6 +38,7 @@ struct Light {
     vec3 specular;
 };
 
+in vec2 v_Texture;
 in vec3 v_Normal;
 in vec3 v_Fragment;
 
@@ -53,13 +53,13 @@ uniform Light light;
 void main()
 {
     // ambient
-    vec3 ambient = light.ambient * material.ambient;
+    vec3 ambient = light.ambient * vec3(texture(material.diffuse, v_Texture));
     
     // diffuse
     vec3 normal = normalize(v_Normal);
     vec3 lightDir = normalize(light.position-v_Fragment);
-    float diffuseStrength = max(dot(normal, lightDir), 0.0);
-    vec3 diffuse = light.diffuse * (diffuseStrength * material.diffuse);
+    float diff = max(dot(normal, lightDir), 0.0);
+    vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, v_Texture));
     
     // specular
     vec3 viewDir = normalize(viewPos - v_Fragment);

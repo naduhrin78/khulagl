@@ -67,6 +67,7 @@
 		8FEFE4E129C9A9AF00ED2E21 /* VertexBufferLayout.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBufferLayout.hpp; sourceTree = "<group>"; };
 		8FEFE4E329C9AD6700ED2E21 /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
 		8FEFE4E429C9AD6700ED2E21 /* VertexArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexArray.hpp; sourceTree = "<group>"; };
+		8FFCF2CB29E1319B0071399C /* container.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 		8F6F270629D7FD010072D68C /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				8FFCF2CB29E1319B0071399C /* container.png */,
 				8F6F270D29D80B8C0072D68C /* pepe.jpeg */,
 				8F6F270C29D7FED70072D68C /* container.jpg */,
 				8F6F270729D7FD190072D68C /* wall.jpg */,
