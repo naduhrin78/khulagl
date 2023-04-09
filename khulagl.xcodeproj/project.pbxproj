@@ -18,6 +18,7 @@
 		8F9EBEA829C7431F0008F8A2 /* VertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA629C7431F0008F8A2 /* VertexBuffer.cpp */; };
 		8F9EBEAB29C743280008F8A2 /* IndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EBEA929C743280008F8A2 /* IndexBuffer.cpp */; };
 		8F9FBFD629C9FF7600F73FA2 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F9FBFD429C9FF7600F73FA2 /* Shader.cpp */; };
+		8FEB2E4729E1EAA800C45D50 /* libassimp.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FEB2E4629E1EAA800C45D50 /* libassimp.5.2.4.dylib */; };
 		8FEFE4E229C9A9AF00ED2E21 /* VertexBufferLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFE4E029C9A9AF00ED2E21 /* VertexBufferLayout.cpp */; };
 		8FEFE4E529C9AD6700ED2E21 /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFE4E329C9AD6700ED2E21 /* VertexArray.cpp */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		8F9FBFD529C9FF7600F73FA2 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		8FBA7C7729E017380004457E /* Light.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Light.shader; sourceTree = "<group>"; };
 		8FBFC65329D6D86A0033360E /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = Vendor/glad/src/glad.c; sourceTree = "<group>"; };
+		8FEB2E4329E1E4F100C45D50 /* libassimp.5.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.2.5.dylib; path = ../../assimp/bin/libassimp.5.2.5.dylib; sourceTree = "<group>"; };
+		8FEB2E4629E1EAA800C45D50 /* libassimp.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.2.4.dylib; path = ../../../../opt/homebrew/Cellar/assimp/5.2.5/lib/libassimp.5.2.4.dylib; sourceTree = "<group>"; };
 		8FEFE4E029C9A9AF00ED2E21 /* VertexBufferLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferLayout.cpp; sourceTree = "<group>"; };
 		8FEFE4E129C9A9AF00ED2E21 /* VertexBufferLayout.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBufferLayout.hpp; sourceTree = "<group>"; };
 		8FEFE4E329C9AD6700ED2E21 /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FEB2E4729E1EAA800C45D50 /* libassimp.5.2.4.dylib in Frameworks */,
 				8F9B1F2129C472EC00111C7F /* libglfw.3.3.dylib in Frameworks */,
 				8F9B1F1F29C4723C00111C7F /* OpenGL.framework in Frameworks */,
 			);
@@ -153,6 +157,8 @@
 		8F9B1F1D29C4723C00111C7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FEB2E4629E1EAA800C45D50 /* libassimp.5.2.4.dylib */,
+				8FEB2E4329E1E4F100C45D50 /* libassimp.5.2.5.dylib */,
 				8F288FD929D6D9470021F300 /* glad.h */,
 				8FBFC65329D6D86A0033360E /* glad.c */,
 				8F9B1F2029C472EC00111C7F /* libglfw.3.3.dylib */,
@@ -388,11 +394,12 @@
 					"/opt/homebrew/Cellar/glm/0.9.9.8/**",
 					"/opt/homebrew/Cellar/glfw/3.3.8/**",
 					"./Vendor/**",
+					"/opt/homebrew/Cellar/assimp/5.2.5/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/glfw/3.3.8/lib,
-					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
+					/opt/homebrew/Cellar/assimp/5.2.5/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -407,11 +414,12 @@
 					"/opt/homebrew/Cellar/glm/0.9.9.8/**",
 					"/opt/homebrew/Cellar/glfw/3.3.8/**",
 					"./Vendor/**",
+					"/opt/homebrew/Cellar/assimp/5.2.5/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/glfw/3.3.8/lib,
-					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
+					/opt/homebrew/Cellar/assimp/5.2.5/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
