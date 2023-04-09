@@ -7,15 +7,9 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
 #include <iostream>
 
-#include "VertexArray.hpp"
-#include "Shader.hpp"
-#include "Texture.hpp"
+#include "Model.hpp"
 #include "Camera.hpp"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -81,98 +75,12 @@ int main(void)
     // -----------------------------
     glEnable(GL_DEPTH_TEST);
     
-    std::vector<Vertex> vertices = {
-        { -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 0.0f, 0.0f },
-        {  0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 1.0f, 0.0f },
-        {  0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 1.0f, 1.0f },
-        {  0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 1.0f, 1.0f },
-        { -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 0.0f, 1.0f },
-        { -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f, 0.0f, 0.0f },
-        
-        { -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 0.0f, 0.0f },
-        {  0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 1.0f, 0.0f },
-        {  0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 1.0f, 1.0f },
-        {  0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 1.0f, 1.0f },
-        { -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 0.0f, 1.0f },
-        { -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f, 0.0f, 0.0f },
-        
-        { -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
-        { -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f, 1.0f, 1.0f },
-        { -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
-        { -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
-        { -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f, 0.0f, 0.0f },
-        { -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
-        
-        {  0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
-        {  0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f, 1.0f, 1.0f },
-        {  0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
-        {  0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f, 0.0f, 1.0f },
-        {  0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f, 0.0f, 0.0f },
-        {  0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f, 1.0f, 0.0f },
-        
-        { -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f, 0.0f, 1.0f },
-        {  0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f, 1.0f, 1.0f },
-        {  0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f, 1.0f, 0.0f },
-        {  0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f, 1.0f, 0.0f },
-        { -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f, 0.0f, 0.0f },
-        { -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f, 0.0f, 1.0f },
-        
-        { -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f },
-        {  0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f, 1.0f, 1.0f },
-        {  0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f },
-        {  0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f },
-        { -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f, 0.0f, 0.0f },
-        { -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f }
-
-    };
+    const char* modelPath ="Resources/Models/backpack/backpack.obj";
+    Model bagModel(const_cast<char*>(modelPath));
     
-    glm::vec3 cubePositions[] = {
-        glm::vec3( 0.0f,  0.0f,  0.0f),
-        glm::vec3( 2.0f,  5.0f, -15.0f),
-        glm::vec3(-1.5f, -2.2f, -2.5f),
-        glm::vec3(-3.8f, -2.0f, -12.3f),
-        glm::vec3( 2.4f, -0.4f, -3.5f),
-        glm::vec3(-1.7f,  3.0f, -7.5f),
-        glm::vec3( 1.3f, -2.0f, -2.5f),
-        glm::vec3( 1.5f,  2.0f, -2.5f),
-        glm::vec3( 1.5f,  0.2f, -1.5f),
-        glm::vec3(-1.3f,  1.0f, -1.5f)
-    };
-    
-    glm::vec3 pointLightPositions[] = {
-        glm::vec3( 0.7f,  0.2f,  2.0f),
-        glm::vec3( 2.3f, -3.3f, -4.0f),
-        glm::vec3(-4.0f,  2.0f, -12.0f),
-        glm::vec3( 0.0f,  0.0f, -3.0f)
-    };
-    
-    std::vector<unsigned int> indices = {
-        0, 1, 3, // first triangle
-        1, 2, 3  // second triangle
-    };
-    
-    VertexArray vao;
-    vao.layout.push<float>(3);
-    vao.layout.push<float>(3);
-    vao.layout.push<float>(2);
-    vao.setVertices(vertices, indices);
-    
-    VertexArray vao2;
-    vao2.layout.push<float>(3);
-    vao2.layout.push<float>(3);
-    vao2.layout.push<float>(2);
-    vao2.setVertices(vertices, indices);
-    
-    Shader objectShader("Resources/Shaders/Object.shader");
-    Shader lightShader("Resources/Shaders/Light.shader");
-    
-    Texture container("Resources/Textures/container.png");
-    Texture container_specular("Resources/Textures/container_specular.png");
+    Shader objectShader("Resources/Shaders/Model.shader");
     
     objectShader.bind();
-    objectShader.setUniform1i("material.diffuse",  0);
-    objectShader.setUniform1i("material.specular", 1);
-    objectShader.setUniform1f("material.shininess", 64.0f);
     
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -193,47 +101,6 @@ int main(void)
         
         objectShader.bind();
         
-        objectShader.setUniform3f("viewPos", camera.position);
-        
-        // Direction Light
-        objectShader.setUniform3f("dirLight.direction", -0.2f, -1.0f, -0.3f);
-        objectShader.setUniform3f("dirLight.ambient", 0.05f, 0.05f, 0.05f);
-        objectShader.setUniform3f("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
-        objectShader.setUniform3f("dirLight.specular", 0.5f, 0.5f, 0.5f);
-        
-        // Point Lights
-        for (unsigned int i = 0; i < 4; i++) {
-            objectShader.setUniform3f("pointLights[" + std::to_string(i) + "].position", pointLightPositions[i]);
-            
-            objectShader.setUniform1f("pointLights[" + std::to_string(i) + "].constant", 1.0f);
-            objectShader.setUniform1f("pointLights[" + std::to_string(i) + "].linear", 0.09f);
-            objectShader.setUniform1f("pointLights[" + std::to_string(i) + "].quadratic", 0.032f);
-            
-            objectShader.setUniform3f("pointLights[" + std::to_string(i) + "].ambient", 0.05f, 0.05f, 0.05f);
-            objectShader.setUniform3f("pointLights[" + std::to_string(i) + "].diffuse", 0.8f, 0.8f, 0.8f);
-            objectShader.setUniform3f("pointLights[" + std::to_string(i) + "].specular", 1.0f, 1.0f, 1.0f);
-        }
-        
-        // Spot Light
-        objectShader.setUniform3f("spotLight.position",  camera.position);
-        objectShader.setUniform3f("spotLight.direction", camera.front);
-        objectShader.setUniform1f("spotLight.cutOff",   glm::cos(glm::radians(12.5f)));
-        objectShader.setUniform1f("spotLight.outerCutOff",   glm::cos(glm::radians(17.5f)));
-        
-        objectShader.setUniform1f("spotLight.constant",   1.0f);
-        objectShader.setUniform1f("spotLight.linear",   0.09f);
-        objectShader.setUniform1f("spotLight.quadratic", 0.032f);
-        
-        objectShader.setUniform3f("spotLight.ambient", 0.0f, 0.0f, 0.0f);
-        objectShader.setUniform3f("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
-        objectShader.setUniform3f("spotLight.specular", 1.0f, 1.0f, 1.0f);
-        
-        container.bind(0);
-        container_specular.bind(1);
-
-        // bind vao for box
-        vao.bind();
-        
         // pass projection matrix to shader (note that in this case it could change every frame)
         glm::mat4 projection = glm::perspective(glm::radians(camera.zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         objectShader.setUniformMat4f("projection", projection);
@@ -242,33 +109,10 @@ int main(void)
         glm::mat4 view = camera.getViewMatrix();
         objectShader.setUniformMat4f("view", view);
         
-        for(unsigned int i = 0; i < 10; i++)
-        {
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, cubePositions[i]);
-            float angle = 20.0f * i;
-            model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
-            objectShader.setUniformMat4f("model", model);
-
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
+        glm::mat4 model = glm::mat4(1.0f);
+        objectShader.setUniformMat4f("model", model);
         
-        // bind vao for light box
-        vao2.bind();
-        
-        
-        lightShader.bind();
-        lightShader.setUniformMat4f("projection", projection);
-        lightShader.setUniformMat4f("view", view);
-        
-        for (unsigned int i = 0; i < 4; i++) {
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, pointLightPositions[i]);
-            model = glm::scale(model, glm::vec3(0.2f));
-            lightShader.setUniformMat4f("model", model);
-            
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
+        bagModel.Draw(objectShader);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);

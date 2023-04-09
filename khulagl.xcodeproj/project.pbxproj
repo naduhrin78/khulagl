@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F258C4E29E24E8600FC19E5 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F258C4C29E24E8600FC19E5 /* Mesh.cpp */; };
+		8F258C5129E2516F00FC19E5 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F258C4F29E2516F00FC19E5 /* Model.cpp */; };
 		8F6F270229D6FBEC0072D68C /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFC65329D6D86A0033360E /* glad.c */; };
 		8F6F270B29D7FE040072D68C /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F6F270A29D7FE040072D68C /* stb_image.cpp */; };
 		8F6F271129D874040072D68C /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F6F270F29D874040072D68C /* Texture.cpp */; };
@@ -37,6 +39,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F258C4C29E24E8600FC19E5 /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		8F258C4D29E24E8600FC19E5 /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		8F258C4F29E2516F00FC19E5 /* Model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
+		8F258C5029E2516F00FC19E5 /* Model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
+		8F258C5329E2575C00FC19E5 /* backpack */ = {isa = PBXFileReference; lastKnownFileType = folder; path = backpack; sourceTree = "<group>"; };
+		8F258C5429E266AC00FC19E5 /* Model.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Model.shader; sourceTree = "<group>"; };
 		8F288FD929D6D9470021F300 /* glad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = glad.h; path = Vendor/glad/include/glad/glad.h; sourceTree = "<group>"; };
 		8F288FDD29D6D9F00021F300 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		8F288FDE29D6D9F00021F300 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
@@ -64,7 +72,6 @@
 		8F9FBFD529C9FF7600F73FA2 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		8FBA7C7729E017380004457E /* Light.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Light.shader; sourceTree = "<group>"; };
 		8FBFC65329D6D86A0033360E /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = Vendor/glad/src/glad.c; sourceTree = "<group>"; };
-		8FEB2E4329E1E4F100C45D50 /* libassimp.5.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.2.5.dylib; path = ../../assimp/bin/libassimp.5.2.5.dylib; sourceTree = "<group>"; };
 		8FEB2E4629E1EAA800C45D50 /* libassimp.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.2.4.dylib; path = ../../../../opt/homebrew/Cellar/assimp/5.2.5/lib/libassimp.5.2.4.dylib; sourceTree = "<group>"; };
 		8FEFE4E029C9A9AF00ED2E21 /* VertexBufferLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBufferLayout.cpp; sourceTree = "<group>"; };
 		8FEFE4E129C9A9AF00ED2E21 /* VertexBufferLayout.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBufferLayout.hpp; sourceTree = "<group>"; };
@@ -89,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F258C5229E2575100FC19E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F258C5329E2575C00FC19E5 /* backpack */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8F6F270629D7FD010072D68C /* Textures */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +165,10 @@
 				8F6F271029D874040072D68C /* Texture.hpp */,
 				8F6F271229D911700072D68C /* Camera.cpp */,
 				8F6F271329D911700072D68C /* Camera.hpp */,
+				8F258C4C29E24E8600FC19E5 /* Mesh.cpp */,
+				8F258C4D29E24E8600FC19E5 /* Mesh.hpp */,
+				8F258C4F29E2516F00FC19E5 /* Model.cpp */,
+				8F258C5029E2516F00FC19E5 /* Model.hpp */,
 			);
 			path = khulagl;
 			sourceTree = "<group>";
@@ -158,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				8FEB2E4629E1EAA800C45D50 /* libassimp.5.2.4.dylib */,
-				8FEB2E4329E1E4F100C45D50 /* libassimp.5.2.5.dylib */,
 				8F288FD929D6D9470021F300 /* glad.h */,
 				8FBFC65329D6D86A0033360E /* glad.c */,
 				8F9B1F2029C472EC00111C7F /* libglfw.3.3.dylib */,
@@ -170,6 +188,7 @@
 		8F9EBE8A29C6E0F10008F8A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8F258C5229E2575100FC19E5 /* Models */,
 				8F6F270629D7FD010072D68C /* Textures */,
 				8F9EBE9129C6E5AC0008F8A2 /* Shaders */,
 			);
@@ -181,6 +200,7 @@
 			children = (
 				8F9EBE9229C6E5BC0008F8A2 /* Object.shader */,
 				8FBA7C7729E017380004457E /* Light.shader */,
+				8F258C5429E266AC00FC19E5 /* Model.shader */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -263,6 +283,7 @@
 				8F6F270229D6FBEC0072D68C /* glad.c in Sources */,
 				8F6F270B29D7FE040072D68C /* stb_image.cpp in Sources */,
 				8F6F271429D911700072D68C /* Camera.cpp in Sources */,
+				8F258C5129E2516F00FC19E5 /* Model.cpp in Sources */,
 				8FEFE4E529C9AD6700ED2E21 /* VertexArray.cpp in Sources */,
 				8F6F271129D874040072D68C /* Texture.cpp in Sources */,
 				8F9B1F1729C4702600111C7F /* main.cpp in Sources */,
@@ -270,6 +291,7 @@
 				8F9FBFD629C9FF7600F73FA2 /* Shader.cpp in Sources */,
 				8F9EBEAB29C743280008F8A2 /* IndexBuffer.cpp in Sources */,
 				8F9EBEA829C7431F0008F8A2 /* VertexBuffer.cpp in Sources */,
+				8F258C4E29E24E8600FC19E5 /* Mesh.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

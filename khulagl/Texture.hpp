@@ -10,7 +10,7 @@
 
 #include <string>
 
-#include "glad/glad.h"
+#include <glad/glad.h>
 #include "stb_image.h"
 
 class Texture {
