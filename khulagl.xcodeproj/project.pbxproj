@@ -62,7 +62,7 @@
 		8F9B1F1629C4702600111C7F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8F9B1F1E29C4723C00111C7F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8F9B1F2029C472EC00111C7F /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
-		8F9EBE9229C6E5BC0008F8A2 /* Object.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Object.shader; sourceTree = "<group>"; };
+		8F9EBE9229C6E5BC0008F8A2 /* Phong.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Phong.shader; sourceTree = "<group>"; };
 		8F9EBE9E29C6ED460008F8A2 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		8F9EBEA629C7431F0008F8A2 /* VertexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBuffer.cpp; sourceTree = "<group>"; };
 		8F9EBEA729C7431F0008F8A2 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		8F9EBE9129C6E5AC0008F8A2 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				8F9EBE9229C6E5BC0008F8A2 /* Object.shader */,
+				8F9EBE9229C6E5BC0008F8A2 /* Phong.shader */,
 				8FBA7C7729E017380004457E /* Light.shader */,
 				8F258C5429E266AC00FC19E5 /* Model.shader */,
 			);

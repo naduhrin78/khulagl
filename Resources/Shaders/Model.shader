@@ -13,8 +13,8 @@ uniform mat4 projection;
 
 void main()
 {
-    v_Texture = texture;
     gl_Position = projection * view * model * position;
+    v_Texture = texture;
 }
 
 #Shader Fragment
